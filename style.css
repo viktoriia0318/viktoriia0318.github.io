@@ -1,0 +1,118 @@
+
+:root{
+    --bg1:#0f1020;
+    --bg2:#1a1c3a;
+    --card:#12142a;
+    --text:#f6f7ff;
+    --muted:rgba(246,247,255,.75);
+    --accent:#ff66b3;
+    --accent2:#7c5cff;
+    --shadow: 0 18px 50px rgba(0,0,0,.45);
+  }
+  
+  *{ box-sizing:border-box; }
+  
+  html, body{
+    height:100%;
+    margin:0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+    color:var(--text);
+  }
+  
+  body{
+   
+    background:
+      radial-gradient(900px 600px at 15% 10%, rgba(255,102,179,.22), transparent 60%),
+      radial-gradient(800px 550px at 85% 20%, rgba(124,92,255,.22), transparent 60%),
+      radial-gradient(900px 650px at 50% 110%, rgba(0,255,208,.12), transparent 65%),
+      linear-gradient(160deg, var(--bg1), var(--bg2));
+    display:grid;
+    place-items:center;
+    padding:24px;
+  }
+  
+  
+  #canvas1{
+    width:min(600px, 92vw);
+    height:auto;
+    aspect-ratio: 1 / 1;
+    border-radius:24px;
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255,255,255,.10);
+    backdrop-filter: blur(8px);
+  }
+  
+  
+  #birthday{
+    margin-top:18px;
+    text-align:center;
+  }
+  
+  #birthday h1{
+    margin:0;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.05;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    font-weight: 800;
+  
+    
+    background: linear-gradient(90deg, var(--accent), #ffd166, #4ef0d5, var(--accent2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  
+   
+    filter: drop-shadow(0 10px 30px rgba(255,102,179,.22));
+    animation: floaty 2.8s ease-in-out infinite;
+  }
+  
+  
+  #birthday p{
+    margin:10px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  
+  /* Анімація */
+  @keyframes floaty{
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-6px); }
+  }
+  
+ 
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+    opacity:.07;
+    mix-blend-mode: overlay;
+  }
+  .music{
+    margin-top: 14px;
+    display:flex;
+    justify-content:center;
+  }
+  
+  #playBtn{
+    border: 1px solid rgba(255,255,255,.15);
+    background: rgba(85, 89, 134, 0.06);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    cursor: pointer;
+    transition: transform .15s ease, background .15s ease;
+  }
+  #playBtn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); }
+  #playBtn:active{ transform: translateY(0px); }
+
+  
+  
+ 
+  @media (max-width: 420px){
+    #birthday{ margin-top: 14px; }
+  }

@@ -18,7 +18,7 @@ const totalFrames = 6;
 let frame = 0;
 
 
-const staggerFrames = 12;
+const staggerFrames = 15;
 let gameFrame = 0;
 
 playerImage.onload = () => {
